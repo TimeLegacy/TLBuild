@@ -1,0 +1,6 @@
+name: Mythric
+version: 1.0
+main: net.timelegacy.mythric.Mythric
+author: Nyarrth
+depend: [TLCore, TTA]
+api-version: 1.13
