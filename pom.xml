@@ -20,7 +20,7 @@
     </repository>
     <repository>
       <id>snapshots</id>
-      <url>http://116.203.125.47:8091/nexus/content/repositories/snapshots/</url>
+      <url>https://nexus.dec0de.xyz/content/repositories/snapshots/</url>
     </repository>
     <repository>
       <id>tta-repo</id>
