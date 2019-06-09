@@ -4,9 +4,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>net.timelegacy</groupId>
-  <artifactId>TLHub</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>VeradeCore</artifactId>
+  <dependencies>
+    <!-- SpigotAPI 1.13 -->
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>1.12.2-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <groupId>net.verade</groupId>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -18,48 +26,9 @@
       <id>spigotmc-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
-    <repository>
-      <id>snapshots</id>
-      <url>https://nexus.dec0de.xyz/content/repositories/snapshots/</url>
-    </repository>
-    <repository>
-      <id>tta-repo</id>
-      <url>http://releases.herbystar.eu/</url>
-    </repository>
-    <repository>
-      <id>dre-repo</id>
-      <url>https://erethon.de/repo/</url>
-    </repository>
   </repositories>
 
-  <dependencies>
-    <!-- SpigotAPI 1.13 -->
-    <dependency>
-      <groupId>org.spigotmc</groupId>
-      <artifactId>spigot-api</artifactId>
-      <version>1.13-R0.1-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <!-- TLCore 1.0 -->
-    <dependency>
-      <groupId>net.timelegacy</groupId>
-      <artifactId>TLCore</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <!-- TTA 3.6 -->
-    <dependency>
-      <groupId>de.Herbystar</groupId>
-      <artifactId>TTA</artifactId>
-      <version>4.8</version>
-    </dependency>
-    <!-- HeadLib 3.0.1 -->
-    <dependency>
-      <groupId>de.erethon</groupId>
-      <artifactId>headlib</artifactId>
-      <version>3.0.1</version>
-    </dependency>
-
-  </dependencies>
+  <version>SNAPSHOT</version>
 
   <build>
     <plugins>
@@ -76,7 +45,6 @@
             <configuration>
               <artifactSet>
                 <includes>
-                  <include>de.erethon:headlib</include>
                 </includes>
               </artifactSet>
             </configuration>
