@@ -13,6 +13,12 @@
       <version>1.12.2-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <artifactId>EssentialsX</artifactId>
+      <groupId>net.ess3</groupId>
+      <scope>provided</scope>
+      <version>2.16.1</version>
+    </dependency>
   </dependencies>
   <groupId>net.verade</groupId>
 
@@ -22,6 +28,10 @@
   </properties>
 
   <repositories>
+    <repository>
+      <id>ess-repo</id>
+      <url>https://ci.ender.zone/plugin/repository/everything/</url>
+    </repository>
     <repository>
       <id>spigotmc-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>

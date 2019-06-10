@@ -1,5 +1,15 @@
-name: Verade-Core
+name: Verade-Build
 version: 42
-main: net.verade.build.core
+main: net.verade.Build
 author: piajesse
-depend:
+depend: [Essentials]
+commands:
+  website:
+    description:
+    aliases:
+  discord:
+    description:
+    aliases:
+  pl:
+    description:
+    aliases:
