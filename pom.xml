@@ -6,18 +6,26 @@
 
   <artifactId>VeradeCore</artifactId>
   <dependencies>
-    <!-- SpigotAPI 1.13 -->
+    <!-- SpigotAPI 1.12 -->
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
       <version>1.12.2-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
+    <!-- Essentials -->
     <dependency>
       <artifactId>EssentialsX</artifactId>
       <groupId>net.ess3</groupId>
       <scope>provided</scope>
       <version>2.16.1</version>
+    </dependency>
+    <!-- PlotSquared -->
+    <dependency>
+      <artifactId>plotsquared-api</artifactId>
+      <groupId>com.plotsquared</groupId>
+      <scope>provided</scope>
+      <version>19.05.28-e4fbc23-769</version>
     </dependency>
   </dependencies>
   <groupId>net.verade</groupId>
@@ -28,17 +36,24 @@
   </properties>
 
   <repositories>
+    <!-- Essentials -->
     <repository>
       <id>ess-repo</id>
       <url>https://ci.ender.zone/plugin/repository/everything/</url>
     </repository>
+    <!-- SpigotAPI 1.13 -->
     <repository>
       <id>spigotmc-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
+    <!-- PlotSquared -->
+    <repository>
+      <id>plotsquared-api</id>
+      <url>http://ci.athion.net/job/PlotSquared-Legacy/ws/mvn/</url>
+    </repository>
   </repositories>
 
-  <version>SNAPSHOT</version>
+  <version>42-SNAPSHOT</version>
 
   <build>
     <plugins>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.plotsquared:plotsquared-api:19.05.28-e4fbc23-769">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/plotsquared/plotsquared-api/19.05.28-e4fbc23-769/plotsquared-api-19.05.28-e4fbc23-769.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/plotsquared/plotsquared-api/19.05.28-e4fbc23-769/plotsquared-api-19.05.28-e4fbc23-769-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/plotsquared/plotsquared-api/19.05.28-e4fbc23-769/plotsquared-api-19.05.28-e4fbc23-769-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

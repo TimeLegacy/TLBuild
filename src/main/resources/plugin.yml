@@ -2,7 +2,7 @@ name: Verade-Build
 version: 42
 main: net.verade.Build
 author: piajesse
-depend: [Essentials]
+depend: [EssentialsV]
 commands:
   website:
     description:
