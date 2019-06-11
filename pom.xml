@@ -2,9 +2,10 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
 
+  <modelVersion>4.0.0</modelVersion>
   <artifactId>VeradeCore</artifactId>
+
   <dependencies>
     <!-- SpigotAPI 1.12 -->
     <dependency>
@@ -26,6 +27,12 @@
       <groupId>com.plotsquared</groupId>
       <scope>provided</scope>
       <version>19.05.28-e4fbc23-769</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sk89q.worldedit</groupId>
+      <artifactId>worldedit-core</artifactId>
+      <version>6.1.3-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <groupId>net.verade</groupId>
@@ -50,6 +57,11 @@
     <repository>
       <id>plotsquared-api</id>
       <url>http://ci.athion.net/job/PlotSquared-Legacy/ws/mvn/</url>
+    </repository>
+
+    <repository>
+      <id>sk89q-snapshots</id>
+      <url>http://maven.sk89q.com/artifactory/repo</url>
     </repository>
   </repositories>
 
