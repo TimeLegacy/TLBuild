@@ -19,8 +19,8 @@
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
     <repository>
-      <id>snapshots</id>
-      <url>https://nexus.dec0de.xyz/content/repositories/snapshots/</url>
+      <id>timelegacy-snapshots</id>
+      <url>https://nexus.dec0de.xyz/content/repositories/timelegacy-snapshots/</url>
     </repository>
     <repository>
       <id>tta-repo</id>
@@ -89,7 +89,7 @@
   <distributionManagement>
     <snapshotRepository>
       <id>snapshots</id>
-      <url>${env.NEXUS_REPO_URL}snapshots/</url>
+      <url>${env.NEXUS_REPO_URL}timelegacy-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 </project>
