@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>VeradeCore</artifactId>
+  <artifactId>TLBuild</artifactId>
 
   <dependencies>
     <!-- SpigotAPI 1.12 -->
@@ -13,13 +13,6 @@
       <artifactId>spigot-api</artifactId>
       <version>1.12.2-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
-    </dependency>
-    <!-- Essentials -->
-    <dependency>
-      <artifactId>EssentialsX</artifactId>
-      <groupId>net.ess3</groupId>
-      <scope>provided</scope>
-      <version>2.16.1</version>
     </dependency>
     <!-- PlotSquared -->
     <dependency>
@@ -33,9 +26,10 @@
       <groupId>com.sk89q.worldedit</groupId>
       <artifactId>worldedit-core</artifactId>
       <version>6.1.3-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
-  <groupId>net.verade</groupId>
+  <groupId>net.timelegacy.tlbuild</groupId>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -43,11 +37,6 @@
   </properties>
 
   <repositories>
-    <!-- Essentials -->
-    <repository>
-      <id>ess-repo</id>
-      <url>https://ci.ender.zone/plugin/repository/everything/</url>
-    </repository>
     <!-- SpigotAPI 1.13 -->
     <repository>
       <id>spigotmc-repo</id>
@@ -81,8 +70,10 @@
             </goals>
             <configuration>
               <artifactSet>
-                <includes>
-                </includes>
+                <excludes>
+                  <exclude>sk89q-snapshots</exclude>
+                  <exclude>plotsquared-api</exclude>
+                </excludes>
               </artifactSet>
             </configuration>
           </execution>
