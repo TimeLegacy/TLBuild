@@ -70,10 +70,6 @@
             </goals>
             <configuration>
               <artifactSet>
-                <excludes>
-                  <exclude>sk89q-snapshots</exclude>
-                  <exclude>plotsquared-api</exclude>
-                </excludes>
               </artifactSet>
             </configuration>
           </execution>
