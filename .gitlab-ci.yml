@@ -24,5 +24,3 @@ package:
     name: "VeradeCore"
     paths:
       - target/*.jar
-  only:
-    - master
