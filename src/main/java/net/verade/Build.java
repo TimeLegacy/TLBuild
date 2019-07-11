@@ -1,5 +1,6 @@
 package net.verade;
 
+import net.verade.leveling.LevelPermissions;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Build extends JavaPlugin {
@@ -18,5 +19,7 @@ public class Build extends JavaPlugin {
     getCommand("pl").setExecutor(new CommandHandler());
     getServer().getPluginManager().registerEvents(new EventHandler(), plugin);
     AutoRestart.setup();
+
+    LevelPermissions.setupLevels();
   }
 }

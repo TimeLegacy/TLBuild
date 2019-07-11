@@ -1,0 +1,31 @@
+{
+  "levels": [
+    {
+      "worldname": "levelone",
+      "permissions": [
+        "test.permission",
+        "test.permission",
+        "test.permission"
+      ],
+      "levelnumber": 1
+    },
+    {
+      "worldname": "leveltwo",
+      "permissions": [
+        "test.permission",
+        "test.permission",
+        "test.permission"
+      ],
+      "levelnumber": 2
+    },
+    {
+      "worldname": "levelthree",
+      "permissions": [
+        "test.permission",
+        "test.permission",
+        "test.permission"
+      ],
+      "levelnumber": 3
+    }
+  ]
+}
