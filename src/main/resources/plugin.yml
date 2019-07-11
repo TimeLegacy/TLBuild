@@ -3,13 +3,3 @@ version: 1.0
 main: net.verade.TLBuild
 author: piajesse, Nyarrth
 depend: [TLCore, PlotSquared]
-commands:
-  website:
-    description:
-    aliases:
-  discord:
-    description:
-    aliases:
-  pl:
-    description:
-    aliases:
