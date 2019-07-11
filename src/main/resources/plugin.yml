@@ -2,7 +2,7 @@ name: TLBuild
 version: 1.0
 main: net.verade.TLBuild
 author: piajesse, Nyarrth
-depend: [TLCore]
+depend: [TLCore, PlotSquared]
 commands:
   website:
     description:
