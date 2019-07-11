@@ -22,7 +22,7 @@ public class AutoRestart {
           cancel();
         }
       }
-    }.runTaskTimerAsynchronously(Build.getPlugin(), 0, 12000); // 10 Minutes
+    }.runTaskTimerAsynchronously(TLBuild.getPlugin(), 0, 12000); // 10 Minutes
     Bukkit.getLogger().info("Restart counter started");
   }
 
@@ -34,7 +34,7 @@ public class AutoRestart {
         public void run() {
           logicAfterRestartTime();
         }
-      }.runTaskTimerAsynchronously(Build.getPlugin(), 0, 1200); // 1 Minute
+      }.runTaskTimerAsynchronously(TLBuild.getPlugin(), 0, 1200); // 1 Minute
       return true;
     }
     return false;

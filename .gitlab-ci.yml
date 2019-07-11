@@ -21,6 +21,6 @@ package:
   script:
     - mvn $MAVEN_CLI_OPTS clean package -Dmaven.test.skip=true
   artifacts:
-    name: "VeradeCore"
+    name: "TLBuild"
     paths:
       - target/*.jar

@@ -1,8 +1,8 @@
-name: Verade-Build
-version: 42
-main: net.verade.Build
-author: piajesse
-depend: [EssentialsV]
+name: TLBuild
+version: 1.0
+main: net.verade.TLBuild
+author: piajesse, Nyarrth
+depend: [TLCore]
 commands:
   website:
     description:

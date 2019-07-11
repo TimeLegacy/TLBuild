@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import net.timelegacy.tlcore.handler.PermissionHandler;
-import net.verade.Build;
+import net.verade.TLBuild;
 import org.bukkit.entity.Player;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,7 +17,7 @@ public class LevelPermissions {
   public static void setupLevels() {
     //TODO load discoveries from config
     String resourceName = "/levels.json";
-    InputStream is = Build.class.getResourceAsStream(resourceName);
+    InputStream is = TLBuild.class.getResourceAsStream(resourceName);
     if (is == null) {
       throw new NullPointerException("Cannot find resource file " + resourceName);
     }

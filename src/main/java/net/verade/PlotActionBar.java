@@ -18,7 +18,7 @@ public class PlotActionBar {
       public void run() {
         logic();
       }
-    }.runTaskTimerAsynchronously(Build.getPlugin(), 0, 1); // Every tick!
+    }.runTaskTimerAsynchronously(TLBuild.getPlugin(), 0, 1); // Every tick!
   }
 
   protected static void logic() {
