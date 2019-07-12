@@ -1,7 +1,6 @@
 package net.verade;
 
 import java.util.Date;
-import net.ess3.api.IEssentials;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -10,8 +9,6 @@ public class AutoRestart {
 
   protected static final Date startupTime = new Date();
   protected static final long restartTime = 86400000; // 24 hours
-  protected static IEssentials essentials =
-      (IEssentials) Bukkit.getPluginManager().getPlugin("Essentials");
 
   static void setup() {
     new BukkitRunnable() {
@@ -45,9 +42,11 @@ public class AutoRestart {
       Bukkit.getServer().shutdown();
     } else {
       for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-        if (!essentials.getUser(player).isAfk()) {
+        /*if (!AFK) {
           return;
-        }
+        }*/
+
+        //TODO use new API for AFK
       }
       Bukkit.getServer().shutdown();
     }

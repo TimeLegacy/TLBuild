@@ -26,7 +26,6 @@ public class LevelPermissions {
     JSONObject object = new JSONObject(tokener);
 
     JSONArray levelsJson = object.getJSONArray("levels");
-    ArrayList<Integer> levelnum = new ArrayList<>();
 
     for (int i = 0; i < levelsJson.length(); i++) {
       JSONObject l = levelsJson.getJSONObject(i);
@@ -37,8 +36,11 @@ public class LevelPermissions {
       JSONArray permissionsJson = l.getJSONArray("permissions");
       List<String> permissions = new ArrayList<>();
 
+      //DEBUG
+      System.out.println(l.toString() + " " + permissionsJson.toString() + " length: " + permissionsJson.length());
+
       for (int p = 0; p < permissionsJson.length(); p++) {
-        String permission = permissions.get(i);
+        String permission = permissionsJson.getString(i);
         permissions.add(permission);
       }
 
@@ -51,7 +53,21 @@ public class LevelPermissions {
 
     for (LevelDatatype levelDatatype : levels) {
       if (levelDatatype.getLevelNum() == levelNumber) {
-        permissions = levelDatatype.getPermissions();
+        for (String perm : levelDatatype.getPermissions()) {
+          permissions.add(perm);
+        }
+
+        //TODO permission inheritance
+        for (int i = levelNumber; i > 1; i--) {
+          for (LevelDatatype inheritanceLevel : levels) {
+            if (inheritanceLevel.getLevelNum() == i) {
+              for (String perm : inheritanceLevel.getPermissions()) {
+                permissions.add(perm);
+              }
+            }
+          }
+        }
+        break;
       }
     }
 

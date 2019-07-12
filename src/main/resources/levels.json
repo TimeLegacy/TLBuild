@@ -3,27 +3,27 @@
     {
       "worldname": "levelone",
       "permissions": [
-        "test.permission",
-        "test.permission",
-        "test.permission"
+        "test.permission1",
+        "test.permission2",
+        "test.permission3"
       ],
       "levelnumber": 1
     },
     {
       "worldname": "leveltwo",
       "permissions": [
-        "test.permission",
-        "test.permission",
-        "test.permission"
+        "test.permission4",
+        "test.permission5",
+        "test.permission6"
       ],
       "levelnumber": 2
     },
     {
       "worldname": "levelthree",
       "permissions": [
-        "test.permission",
-        "test.permission",
-        "test.permission"
+        "test.permission7",
+        "test.permission8",
+        "test.permission9"
       ],
       "levelnumber": 3
     }
