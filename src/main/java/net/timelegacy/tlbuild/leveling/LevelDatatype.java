@@ -1,4 +1,4 @@
-package net.verade.leveling;
+package net.timelegacy.tlbuild.leveling;
 
 import java.util.List;
 

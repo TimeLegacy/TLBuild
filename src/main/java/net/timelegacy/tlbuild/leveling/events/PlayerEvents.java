@@ -1,6 +1,6 @@
-package net.verade.leveling.events;
+package net.timelegacy.tlbuild.leveling.events;
 
-import net.verade.leveling.LevelPermissions;
+import net.timelegacy.tlbuild.leveling.LevelPermissions;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -1,8 +1,8 @@
-package net.verade.leveling.player;
+package net.timelegacy.tlbuild.leveling.player;
 
 import java.io.File;
 import java.io.IOException;
-import net.verade.TLBuild;
+import net.timelegacy.tlbuild.TLBuild;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;

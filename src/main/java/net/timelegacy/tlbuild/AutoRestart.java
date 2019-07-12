@@ -1,6 +1,7 @@
-package net.verade;
+package net.timelegacy.tlbuild;
 
 import java.util.Date;
+import net.timelegacy.tlcore.handler.AFKHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -42,9 +43,9 @@ public class AutoRestart {
       Bukkit.getServer().shutdown();
     } else {
       for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-        /*if (!AFK) {
+        if (!AFKHandler.isAFK(player.getUniqueId())) {
           return;
-        }*/
+        }
 
         //TODO use new API for AFK
       }

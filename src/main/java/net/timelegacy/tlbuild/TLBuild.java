@@ -1,7 +1,7 @@
-package net.verade;
+package net.timelegacy.tlbuild;
 
-import net.verade.leveling.LevelPermissions;
-import net.verade.leveling.events.PlayerEvents;
+import net.timelegacy.tlbuild.leveling.LevelPermissions;
+import net.timelegacy.tlbuild.leveling.events.PlayerEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TLBuild extends JavaPlugin {
@@ -19,5 +19,6 @@ public class TLBuild extends JavaPlugin {
     AutoRestart.setup();
 
     LevelPermissions.setupLevels();
+    getCommand("plotalias").setExecutor(new CommandHandler());
   }
 }

@@ -1,10 +1,10 @@
-package net.verade.leveling;
+package net.timelegacy.tlbuild.leveling;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import net.timelegacy.tlbuild.TLBuild;
 import net.timelegacy.tlcore.handler.PermissionHandler;
-import net.verade.TLBuild;
 import org.bukkit.entity.Player;
 import org.json.JSONArray;
 import org.json.JSONObject;
