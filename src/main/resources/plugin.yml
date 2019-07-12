@@ -1,6 +1,5 @@
-name: Mythric
+name: TLBuild
 version: 1.0
-main: net.timelegacy.mythric.Mythric
-author: Nyarrth
-depend: [TLCore, TTA]
-api-version: 1.13
+main: net.verade.TLBuild
+author: piajesse, Nyarrth
+depend: [TLCore, PlotSquared]

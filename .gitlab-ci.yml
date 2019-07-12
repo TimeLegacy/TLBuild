@@ -6,7 +6,6 @@ variables:
 stages:
   - build
   - package
-  - deploy
 
 build:
   tags:
@@ -22,17 +21,6 @@ package:
   script:
     - mvn $MAVEN_CLI_OPTS clean package -Dmaven.test.skip=true
   artifacts:
-    name: "Mythric"
+    name: "TLBuild"
     paths:
       - target/*.jar
-  only:
-    - master
-
-deploy:
-  tags:
-    - deploy
-  stage: deploy
-  script:
-    - mvn $MAVEN_CLI_OPTS deploy -Dmaven.test.skip=true
-  only:
-    - master
