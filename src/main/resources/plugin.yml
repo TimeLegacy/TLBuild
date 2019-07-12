@@ -1,5 +1,5 @@
 name: TLBuild
 version: 1.0
-main: net.verade.TLBuild
+main: net.timelegacy.tlbuild.TLBuild
 author: piajesse, Nyarrth
 depend: [TLCore, PlotSquared]
