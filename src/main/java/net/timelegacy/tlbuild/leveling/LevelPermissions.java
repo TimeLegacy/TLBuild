@@ -40,7 +40,7 @@ public class LevelPermissions {
       System.out.println(l.toString() + " " + permissionsJson.toString() + " length: " + permissionsJson.length());
 
       for (int p = 0; p < permissionsJson.length(); p++) {
-        String permission = permissionsJson.getString(i);
+        String permission = permissionsJson.getString(p);
         permissions.add(permission);
       }
 
@@ -56,17 +56,14 @@ public class LevelPermissions {
         for (String perm : levelDatatype.getPermissions()) {
           permissions.add(perm);
         }
-
-        //TODO permission inheritance
-        for (int i = levelNumber; i > 1; i--) {
-          for (LevelDatatype inheritanceLevel : levels) {
-            if (inheritanceLevel.getLevelNum() == i) {
-              for (String perm : inheritanceLevel.getPermissions()) {
-                permissions.add(perm);
-              }
+        for (LevelDatatype levelInherit : levels) {
+          if (levelInherit.getLevelNum() < levelNumber) {
+            for (String perm : levelInherit.getPermissions()) {
+              permissions.add(perm);
             }
           }
         }
+
         break;
       }
     }
@@ -74,13 +71,11 @@ public class LevelPermissions {
     return permissions;
   }
 
-  public static void setPlayerPermissions(Player player) {
-    //TODO get a player's level based on the per player config @piajesse
-    List<String> permissions = getPermissions(1);
-
-    for (String perm : permissions) {
+  public static void setPlayerPermissions(Player player, int level) {
+    for (String perm : getPermissions(level)) {
       PermissionHandler.addPermission(player, perm);
-    }
 
+      System.out.println(perm);
+    }
   }
 }

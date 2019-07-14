@@ -19,6 +19,6 @@ public class TLBuild extends JavaPlugin {
     AutoRestart.setup();
 
     LevelPermissions.setupLevels();
-    getCommand("plotalias").setExecutor(new CommandHandler());
+    //getCommand("plotalias").setExecutor(new CommandHandler());
   }
 }
