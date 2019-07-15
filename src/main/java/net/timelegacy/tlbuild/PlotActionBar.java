@@ -29,11 +29,8 @@ public class PlotActionBar {
       if (playersLastMessage.get(player.getUniqueId()) == null) {
         moveEvent(new PlayerMoveEvent(player, null, null));
       }
-      player
-          .spigot()
-          .sendMessage(
-              ChatMessageType.ACTION_BAR,
-              TextComponent.fromLegacyText(playersLastMessage.get(player.getUniqueId())));
+      player.spigot().sendMessage(ChatMessageType.ACTION_BAR,
+          TextComponent.fromLegacyText(playersLastMessage.get(player.getUniqueId())));
     }
   }
 
@@ -72,16 +69,11 @@ public class PlotActionBar {
 
     if (playersLastMessage.get(player.getUniqueId()) == null) {
       playersLastMessage.put(player.getUniqueId(), message);
-      player
-          .spigot()
-          .sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
+      player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
     } else {
       if (!playersLastMessage.get(player.getUniqueId()).equals(message)) {
-
         playersLastMessage.put(player.getUniqueId(), message);
-        player
-            .spigot()
-            .sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
       }
     }
   }

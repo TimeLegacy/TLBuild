@@ -2,4 +2,10 @@ name: TLBuild
 version: 1.0
 main: net.timelegacy.tlbuild.TLBuild
 author: piajesse, Nyarrth
+api-version: 1.13
 depend: [TLCore, PlotSquared]
+commands:
+  review:
+    description: Review plots!
+  plot:
+    description: Custom plot based commands.
