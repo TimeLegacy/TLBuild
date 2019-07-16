@@ -16,6 +16,54 @@ public class PlotActionBar {
 
   protected static HashMap<UUID, String> playersLastMessage = new HashMap<>();
 
+  static void setup2() {
+    new BukkitRunnable() {
+      public void run() {
+        logic2();
+      }
+    }.runTaskTimerAsynchronously(TLBuild.getPlugin(), 0L, 1L);
+  }
+
+  protected static void logic2() {
+    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+      Plot plot = PlotPlayer.get(player.getName()).getCurrentPlot();
+      if (plot == null) {
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(""));
+        return;
+      }
+
+      String message;
+      if (plot.getOwners().contains(player.getUniqueId())) {
+        if (plot.getAlias().equals("")) {
+          message = "§6§lYour Plot §f» §7/plotalias <your plot name>";
+        } else {
+          message = "§6§l" + plot.getAlias();
+        }
+      } else {
+        if (plot.getAlias().equals("")) {
+          message = "§6§lPLOT OWNED§7 by §b";
+        } else {
+          message = "§6§l" + plot.getAlias() + "§7 by §b";
+        }
+
+        boolean notFirst = false;
+        for (java.util.UUID u : plot.getOwners()) {
+          if (notFirst) {
+            message = message + "§7, §b";
+          }
+          message = message + Bukkit.getOfflinePlayer(u).getName();
+          notFirst = true;
+        }
+
+        if (!notFirst) {
+          message = "§C§lNOT CLAIMED §f» §7/plot claim";
+        }
+      }
+
+      player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
+    }
+  }
+
   static void setup() {
     new BukkitRunnable() {
       public void run() {
@@ -78,7 +126,4 @@ public class PlotActionBar {
     }
   }
 
-  static void playerLeave(PlayerQuitEvent event) {
-    playersLastMessage.remove(event.getPlayer().getUniqueId());
-  }
 }

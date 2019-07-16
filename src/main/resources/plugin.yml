@@ -7,5 +7,9 @@ depend: [TLCore, PlotSquared]
 commands:
   review:
     description: Review plots!
-  plot:
-    description: Custom plot based commands.
+  plotalias:
+    description: Set the name of your plot.
+  submitplot:
+    description: Submit your plot review.
+  unsubmitplot:
+    description: Unsubmit your plot for review.

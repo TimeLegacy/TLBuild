@@ -3,12 +3,14 @@ package net.timelegacy.tlbuild.commands;
 import com.github.intellectualsites.plotsquared.plot.object.Plot;
 import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class PlotAliasCommand {
+public class PlotAliasCommand implements CommandExecutor {
 
-  public static boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+  @Override
+  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     if (!(sender instanceof Player)) {
       return false;
     }

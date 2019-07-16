@@ -1,4 +1,4 @@
-package net.timelegacy.tlbuild.leveling.player;
+package net.timelegacy.tlbuild.leveling;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;

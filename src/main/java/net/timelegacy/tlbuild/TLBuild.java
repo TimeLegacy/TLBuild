@@ -1,12 +1,12 @@
 package net.timelegacy.tlbuild;
 
-import net.timelegacy.tlbuild.commands.PlotCommand;
+import net.timelegacy.tlbuild.commands.PlotAliasCommand;
 import net.timelegacy.tlbuild.commands.ReviewCommand;
+import net.timelegacy.tlbuild.commands.SubmitPlotCommand;
+import net.timelegacy.tlbuild.commands.UnsubmitPlotCommand;
 import net.timelegacy.tlbuild.guis.ReviewListGUI;
-import net.timelegacy.tlbuild.leveling.LevelPermissions;
-import net.timelegacy.tlbuild.leveling.events.PlayerEvents;
-import net.timelegacy.tlbuild.managers.MongoDBDataManager;
 import net.timelegacy.tlbuild.managers.DataManager;
+import net.timelegacy.tlbuild.managers.MongoDBDataManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TLBuild extends JavaPlugin {
@@ -22,8 +22,6 @@ public class TLBuild extends JavaPlugin {
     registerClasses();
     registerCommands();
     registerEvents();
-
-    //getCommand("plotalias").setExecutor(new CommandHandler());
   }
 
   @Override
@@ -40,14 +38,14 @@ public class TLBuild extends JavaPlugin {
 
   private void registerCommands() {
     getCommand("review").setExecutor(new ReviewCommand(this));
-    getCommand("plot").setExecutor(new PlotCommand(this));
+    getCommand("plotalias").setExecutor(new PlotAliasCommand());
+    getCommand("submitplot").setExecutor(new SubmitPlotCommand(this));
+    getCommand("unsubmitplot").setExecutor(new UnsubmitPlotCommand(this));
   }
 
   private void registerEvents() {
-    getServer().getPluginManager().registerEvents(new PlayerEvents(), plugin);
     AutoRestart.setup();
-    LevelPermissions.setupLevels();
-    PlotActionBar.setup();
+    PlotActionBar.setup2();
     getServer().getPluginManager().registerEvents(new ReviewListGUI(this), this);
     getServer().getPluginManager().registerEvents(new ChatFormat(this), this);
   }
