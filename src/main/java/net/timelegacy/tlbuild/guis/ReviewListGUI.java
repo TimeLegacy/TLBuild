@@ -44,11 +44,14 @@ public class ReviewListGUI implements Listener {
     player.openInventory(inv);
 
     if (plugin.getDataManager().getPlayersNeedingReview().size() == 0) {
-      inv.setItem(22, ItemUtils.createItem(Material.BARRIER, "&cEmpty", Arrays.asList("&7No players are in", "&7need of a review!")));
+      inv.setItem(22, ItemUtils
+          .createItem(Material.BARRIER, "&cEmpty", Arrays.asList("&7No players are in", "&7need of a review!")));
       return;
     }
 
     new BukkitRunnable() {
+
+      DataManager dataManager = plugin.getDataManager();
 
       @Override
       public void run() {
@@ -63,13 +66,15 @@ public class ReviewListGUI implements Listener {
 
           int current = ((i - 10) + start) - forgotten;
 
-          if (current >= plugin.getDataManager().getPlayersNeedingReview().size()) {
+          if (current >= dataManager.getPlayersNeedingReview().size()) {
             continue;
           }
 
-          DataManager dataManager = plugin.getDataManager();
-          UUID uuid = plugin.getDataManager().getPlayersNeedingReview().get(current);
+          if (dataManager.getPlayersUnderReview().containsValue(dataManager.getPlayersNeedingReview().get(current))) {
+            continue;
+          }
 
+          UUID uuid = dataManager.getPlayersNeedingReview().get(current);
           String playerName = Bukkit.getOfflinePlayer(uuid).getName();
 
           ItemStack itemStack = ItemUtils.createSkullItem(playerName);
@@ -88,6 +93,7 @@ public class ReviewListGUI implements Listener {
           ItemStack finalItem = ItemUtils.addLocalizedName(itemStack, uuid.toString());
 
           inv.setItem(i, finalItem);
+
           player.updateInventory();
         }
       }
@@ -120,7 +126,6 @@ public class ReviewListGUI implements Listener {
     }
 
     int pageNumber = Integer.parseInt(title.split("Page")[1]);
-
 
     if (event.getCurrentItem().getItemMeta().getDisplayName().equals(MessageUtils.colorize("&aPrevious Page"))) {
       if (pageNumber == 1) {
@@ -159,7 +164,7 @@ public class ReviewListGUI implements Listener {
 
 //    for (CustomPlayerData playerData : plugin.getDataManager().getPlayersNeedingReview()) {
 //      if (event.getCurrentItem().getItemMeta().getLocalizedName().equals(playerData.getLocalizedName())) {
-//        plugin.getDataManager().getPlayersReviewing().put(event.getWhoClicked().getUniqueId(), playerData.getUuid());
+//        plugin.getDataManager().getPlayersUnderReview().put(event.getWhoClicked().getUniqueId(), playerData.getUuid());
 //      }
 //    }
 
@@ -172,7 +177,6 @@ public class ReviewListGUI implements Listener {
 //        break;
 //      }
 //    }
-
 
   }
 
