@@ -18,12 +18,11 @@ public class PlayerStorage {
   private static MongoCollection<Document> reviewPlots =
       MongoDB.mongoDatabase.getCollection("creative_leveling_system");
 
-  public static void submitPlot(Player player, Location location, String plotName) {
+  public static void submitPlot(Player player, Location location) {
     reviewPlots.insertOne(
         new Document("player_uuid", player.getUniqueId().toString())
             .append("status", "posted")
             .append("server", ServerHandler.getServerUUID().toString())
-            .append("plot_name", plotName)
             .append("location_x", location.getX())
             .append("location_z", location.getZ())
             .append("location_world", location.getWorld()));
