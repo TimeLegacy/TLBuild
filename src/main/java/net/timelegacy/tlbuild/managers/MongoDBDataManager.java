@@ -4,10 +4,12 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import net.timelegacy.tlbuild.leveling.CustomPlayerReview;
 import net.timelegacy.tlcore.handler.ServerHandler;
 import net.timelegacy.tlcore.mongodb.MongoDB;
 import org.bson.Document;
@@ -31,6 +33,11 @@ public class MongoDBDataManager implements DataManager {
       }
     }
 
+  }
+
+  @Override
+  public void addPlayer(UUID uuid, Location location, Date dateSubmitted, Date lastSeen) {
+    new CustomPlayerReview(uuid, getPlayerLevel(uuid), location, dateSubmitted, lastSeen);
   }
 
   @Override

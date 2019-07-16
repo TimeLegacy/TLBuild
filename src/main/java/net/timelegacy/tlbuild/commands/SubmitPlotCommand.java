@@ -2,6 +2,7 @@ package net.timelegacy.tlbuild.commands;
 
 import com.github.intellectualsites.plotsquared.plot.object.Plot;
 import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
+import java.util.Date;
 import net.timelegacy.tlbuild.TLBuild;
 import net.timelegacy.tlbuild.leveling.CustomPlayerReview;
 import net.timelegacy.tlbuild.managers.DataManager;
@@ -47,9 +48,7 @@ public class SubmitPlotCommand implements CommandExecutor {
     }
 
     // Add to the queue.
-    new CustomPlayerReview(player.getUniqueId(), dataManager.getPlayerLevel(player.getUniqueId()), player.getLocation(), 0L, 0L);
-
-    dataManager.getPlayersNeedingReview().add(player.getUniqueId());
+    dataManager.addPlayer(player.getUniqueId(), player.getLocation(), new Date(14), new Date(14));
     player.sendMessage("You have submitted your plot.");
     return true;
   }

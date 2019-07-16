@@ -1,5 +1,6 @@
 package net.timelegacy.tlbuild.leveling;
 
+import java.util.Date;
 import java.util.UUID;
 import org.bukkit.Location;
 
@@ -8,10 +9,10 @@ public class CustomPlayerReview {
   private UUID uuid;
   private int level;
   private Location location;
-  private long dateSubmitted;
-  private long lastSeen;
+  private Date dateSubmitted;
+  private Date lastSeen;
 
-  public CustomPlayerReview(UUID uuid, int level, Location location, long dateSubmitted, long lastSeen) {
+  public CustomPlayerReview(UUID uuid, int level, Location location, Date dateSubmitted, Date lastSeen) {
     this.uuid = uuid;
     this.level = level;
     this.location = location;
@@ -31,11 +32,11 @@ public class CustomPlayerReview {
     return location;
   }
 
-  public long getDateSubmitted() {
+  public Date getDateSubmitted() {
     return dateSubmitted;
   }
 
-  public long getLastSeen() {
+  public Date getLastSeen() {
     return lastSeen;
   }
 }
