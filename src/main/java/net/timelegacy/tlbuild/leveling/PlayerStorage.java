@@ -4,6 +4,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 import net.timelegacy.tlcore.handler.ServerHandler;
 import net.timelegacy.tlcore.mongodb.MongoDB;
@@ -23,6 +24,7 @@ public class PlayerStorage {
         new Document("player_uuid", player.getUniqueId().toString())
             .append("status", "posted")
             .append("server", ServerHandler.getServerUUID().toString())
+            .append("time_submitted", new Date())
             .append("location_x", location.getX())
             .append("location_z", location.getZ())
             .append("location_world", location.getWorld()));
