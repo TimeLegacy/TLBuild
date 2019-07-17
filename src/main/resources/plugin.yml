@@ -13,3 +13,5 @@ commands:
     description: Submit your plot review.
   unsubmitplot:
     description: Unsubmit your plot for review.
+  forums:
+    description: Forums Link.

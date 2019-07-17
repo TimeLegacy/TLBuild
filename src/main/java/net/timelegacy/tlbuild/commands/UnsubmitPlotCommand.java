@@ -1,7 +1,5 @@
 package net.timelegacy.tlbuild.commands;
 
-import com.github.intellectualsites.plotsquared.plot.object.Plot;
-import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
 import net.timelegacy.tlbuild.TLBuild;
 import net.timelegacy.tlbuild.managers.DataManager;
 import org.bukkit.command.Command;
@@ -35,6 +33,7 @@ public class UnsubmitPlotCommand implements CommandExecutor {
 
     // Remove from queue.
     dataManager.getPlayersNeedingReview().remove(player.getUniqueId());
+
     player.sendMessage("You have removed yourself from the review queue.");
     return true;
   }

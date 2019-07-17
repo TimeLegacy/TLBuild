@@ -2,6 +2,7 @@ package net.timelegacy.tlbuild.commands;
 
 import net.timelegacy.tlbuild.TLBuild;
 import net.timelegacy.tlbuild.guis.ReviewListGUI;
+import net.timelegacy.tlbuild.managers.DataManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -42,17 +43,40 @@ public class ReviewCommand implements CommandExecutor {
         return true;
       }
 
+      DataManager dataManager = plugin.getDataManager();
+
       if (args[0].equalsIgnoreCase("cancel")) {
+        if (!dataManager.getPlayersUnderReview().containsKey(player.getUniqueId())) {
+          player.sendMessage("You aren't reviewing anyone right now.");
+          return true;
+        }
+
+        dataManager.cancelReview(player.getUniqueId());
+
         player.sendMessage("Review cancelled.");
         return true;
       }
 
       if (args[0].equalsIgnoreCase("accept")) {
+        if (!dataManager.getPlayersUnderReview().containsKey(player.getUniqueId())) {
+          player.sendMessage("You aren't reviewing anyone right now.");
+          return true;
+        }
+
+        dataManager.acceptSubmission(player.getUniqueId());
+
         player.sendMessage("Accepted Review");
         return true;
       }
 
       if (args[0].equalsIgnoreCase("deny")) {
+        if (!dataManager.getPlayersUnderReview().containsKey(player.getUniqueId())) {
+          player.sendMessage("You aren't reviewing anyone right now.");
+          return true;
+        }
+
+        dataManager.denySubmission(player.getUniqueId());
+
         player.sendMessage("Denied Review");
         return true;
       }
@@ -71,6 +95,5 @@ public class ReviewCommand implements CommandExecutor {
 
     return false;
   }
-
 
 }

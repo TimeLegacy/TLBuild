@@ -10,6 +10,7 @@ import net.timelegacy.tlcore.utils.MenuUtils;
 import net.timelegacy.tlcore.utils.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -157,7 +158,16 @@ public class ReviewListGUI implements Listener {
     for (UUID uuid : plugin.getDataManager().getPlayersNeedingReview()) {
       if (event.getCurrentItem().getItemMeta().getLocalizedName().equals(uuid.toString())) {
         System.out.println("UUID: " + uuid.toString());
+        if (uuid == player.getUniqueId()) {
+          player.sendMessage("You can't review your own plot!");
+          break;
+        }
 
+        plugin.getDataManager().putPlayerUnderReview(player.getUniqueId(), uuid);
+
+        player.sendMessage("You are now reviewing " + Bukkit.getOfflinePlayer(uuid).getName() + "'s plot!");
+        player.teleport(plugin.getDataManager().getPlayerSubmissionLocation(uuid));
+        break;
         // Open confirmation GUI.
       }
     }

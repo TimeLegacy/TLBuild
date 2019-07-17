@@ -25,8 +25,6 @@ public class ConfirmationGUI implements Listener {
 
   @EventHandler
   public void onInventoryClick(InventoryClickEvent event) {
-
-
     Player player = (Player) event.getWhoClicked();
 
     plugin.getDataManager().getPlayersUnderReview().put(player.getUniqueId(), UUID.fromString(event.getCurrentItem().getItemMeta().getLocalizedName()));
