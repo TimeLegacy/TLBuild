@@ -4,7 +4,17 @@
       "worldname": "levelone",
       "permissions": [
         "fawe.worldeditregion",
+        "plots.middle",
+        "chatreaction.wins",
+        "chatreaction.top",
+        "holo.toggle",
+        "worldedit.region.set",
+        "holo.chat",
         "fawe.cancel",
+        "worldedit.region.center",
+        "worldedit.analysis.count",
+        "worldedit.generation.sphere",
+        "worldedit.brush.smooth",
         "worldedit.biome.info",
         "worldedit.biome.set",
         "worldedit.biome.list",
@@ -141,7 +151,9 @@
         "worldedit.region.faces",
         "worldedit.clipboard.flip",
         "worldedit.generation.sphere",
-        "worldedit.global-mask"
+        "worldedit.global-mask",
+        "gobrush.use",
+        "gopaint.use"
       ],
       "levelnumber": 2
     },
