@@ -3,6 +3,7 @@ package net.timelegacy.tlbuild.commands;
 import net.timelegacy.tlbuild.TLBuild;
 import net.timelegacy.tlbuild.guis.ReviewListGUI;
 import net.timelegacy.tlbuild.managers.DataManager;
+import net.timelegacy.tlcore.handler.RankHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,6 +25,11 @@ public class ReviewCommand implements CommandExecutor {
     }
 
     Player player = (Player) sender;
+    int rankPriority = RankHandler.getRank(player.getUniqueId()).getPriority();
+    if (!(rankPriority == 10 || rankPriority == 5)){// Builder or Founder
+      player.sendMessage("no perms"); //TODO update this with a proper message from tac
+      return true;
+    }
 
     int length = args.length;
 
