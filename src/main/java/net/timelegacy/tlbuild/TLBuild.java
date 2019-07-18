@@ -13,7 +13,6 @@ import net.timelegacy.tlbuild.managers.DataManager;
 import net.timelegacy.tlbuild.managers.FileManager;
 import net.timelegacy.tlbuild.managers.YAMLDataManager;
 import net.timelegacy.tlcore.handler.ServerHandler;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -41,23 +40,6 @@ public class TLBuild extends JavaPlugin {
     for (UUID uuid : ServerHandler.getServers().keySet()) {
       System.out.println(uuid);
     }
-
-    System.out.println("UUID: " + ServerHandler.getServerUUID());
-    System.out.println("Type: " + ServerHandler.getType(ServerHandler.getServerUUID()));
-    System.out.println("IP:   " + ServerHandler.getIP(ServerHandler.getServerUUID()));
-    System.out.println("Port: " + ServerHandler.getPort(ServerHandler.getServerUUID()));
-
-    ServerHandler.setType(ServerHandler.getServerUUID(), "creative");
-    ServerHandler.setIP(ServerHandler.getServerUUID(), "172.18.0.1");
-    ServerHandler.setPort(ServerHandler.getServerUUID(), Bukkit.getServer().getPort());
-
-    System.out.println("-------AFTER-------");
-    System.out.println("UUID: " + ServerHandler.getServerUUID());
-    System.out.println("Type: " + ServerHandler.getType(ServerHandler.getServerUUID()));
-    System.out.println("IP:   " + ServerHandler.getIP(ServerHandler.getServerUUID()));
-    System.out.println("Port: " + ServerHandler.getPort(ServerHandler.getServerUUID()));
-
-    ServerHandler.printCollections();
   }
 
   @Override

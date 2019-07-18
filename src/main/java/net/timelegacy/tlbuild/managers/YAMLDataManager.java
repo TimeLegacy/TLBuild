@@ -178,7 +178,7 @@ public class YAMLDataManager implements DataManager {
     System.out.println(getPlayerLevel(target));
 
     String format = MessageUtils.colorize("&7[&6" + getPlayerLevel(target) + "&7] ");
-    Chat.getPlayerChat(Bukkit.getOfflinePlayer(target)).setPrefix(format);
+    Chat.getPlayerChat(Bukkit.getPlayer(target)).setPrefix(format);
 
     System.out.println(Bukkit.getOfflinePlayer(target).getName());
 
