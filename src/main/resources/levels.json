@@ -39,6 +39,7 @@
         "worldedit.selection.pos",
         "worldedit.selection.chunk",
         "builders.util.nightvision",
+        "plots.claim",
         "plots.plot.1",
         "worldedit.fixwater",
         "worldedit.thaw",

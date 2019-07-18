@@ -74,8 +74,6 @@ public class LevelPermissions {
   public static void setPlayerPermissions(Player player, int level) {
     for (String perm : getPermissions(level)) {
       PermissionHandler.addPermission(player, perm);
-
-      System.out.println(perm);
     }
   }
 }
