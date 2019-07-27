@@ -123,6 +123,7 @@ public class YAMLDataManager implements DataManager {
   @Override
   public void setPlayerLevel(UUID uuid, int level) {
     getPlayerConfig(uuid).set("level", level);
+    getPlayerData(uuid).setHasBeenModified(true);
   }
 
   @Override
@@ -146,11 +147,13 @@ public class YAMLDataManager implements DataManager {
   @Override
   public void updateStatus(UUID uuid, String status) {
     getPlayerConfig(uuid).set("reviewStatus", status);
+    getPlayerData(uuid).setHasBeenModified(true);
   }
 
   @Override
   public void putPlayerUnderReview(UUID reviewer, UUID target) {
     getPlayerConfig(target).set("reviewStatus", "underReview");
+    getPlayerData(target).setHasBeenModified(true);
     playersNeedingReview.remove(target);
     playersUnderReview.put(reviewer, target);
   }
@@ -173,6 +176,7 @@ public class YAMLDataManager implements DataManager {
     System.out.println(getPlayerLevel(target));
 
     getPlayerConfig(target).set("reviewStatus", "none");
+    getPlayerData(target).setHasBeenModified(true);
     setPlayerLevel(target, getPlayerLevel(target) + 1);
 
     System.out.println(getPlayerLevel(target));
@@ -191,6 +195,7 @@ public class YAMLDataManager implements DataManager {
     UUID target = playersUnderReview.get(reviewer);
 
     getPlayerConfig(target).set("reviewStatus", "none");
+    getPlayerData(target).setHasBeenModified(true);
 
     playersUnderReview.remove(uuid);
   }
@@ -201,6 +206,7 @@ public class YAMLDataManager implements DataManager {
     UUID target = playersUnderReview.get(reviewer);
 
     getPlayerConfig(target).set("reviewStatus", "needsReview");
+    getPlayerData(target).setHasBeenModified(true);
 
     playersNeedingReview.add(target);
     playersUnderReview.remove(uuid);

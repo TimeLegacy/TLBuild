@@ -15,3 +15,9 @@ commands:
     description: Unsubmit your plot for review.
   forums:
     description: Forums Link.
+  setlevel:
+    description: Set your creative level.
+  getlevel:
+    description: Show your creative level.
+  levelperks:
+    description: Show your level perks.

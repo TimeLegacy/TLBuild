@@ -1,18 +1,23 @@
 package net.timelegacy.tlbuild;
 
-import java.util.UUID;
 import net.timelegacy.tlbuild.commands.ForumsCommand;
+import net.timelegacy.tlbuild.commands.GetLevelCommand;
+import net.timelegacy.tlbuild.commands.LevelPerksCommand;
 import net.timelegacy.tlbuild.commands.PlotAliasCommand;
 import net.timelegacy.tlbuild.commands.ReviewCommand;
+import net.timelegacy.tlbuild.commands.SetLevelCommand;
 import net.timelegacy.tlbuild.commands.SubmitPlotCommand;
 import net.timelegacy.tlbuild.commands.UnsubmitPlotCommand;
-import net.timelegacy.tlbuild.events.PlayerJoinListener;
 import net.timelegacy.tlbuild.guis.ReviewListGUI;
+import net.timelegacy.tlbuild.hooks.PlaceholderAPIHook;
 import net.timelegacy.tlbuild.leveling.LevelPermissions;
+import net.timelegacy.tlbuild.listeners.PlayerJoinListener;
+import net.timelegacy.tlbuild.listeners.PlayerLeaveListener;
+import net.timelegacy.tlbuild.listeners.PortalListener;
 import net.timelegacy.tlbuild.managers.DataManager;
 import net.timelegacy.tlbuild.managers.FileManager;
 import net.timelegacy.tlbuild.managers.YAMLDataManager;
-import net.timelegacy.tlcore.handler.ServerHandler;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -35,15 +40,12 @@ public class TLBuild extends JavaPlugin {
 
     dataManager.loadDatabase();
 
-    ServerHandler.getServers();
-
-    for (UUID uuid : ServerHandler.getServers().keySet()) {
-      System.out.println(uuid);
-    }
+    new PlaceholderAPIHook(this).register();
   }
 
   @Override
   public void onDisable() {
+    dataManager.saveDatabase();
   }
 
   public static TLBuild getPlugin() {
@@ -61,15 +63,22 @@ public class TLBuild extends JavaPlugin {
     getCommand("submitplot").setExecutor(new SubmitPlotCommand(this));
     getCommand("unsubmitplot").setExecutor(new UnsubmitPlotCommand(this));
     getCommand("forums").setExecutor(new ForumsCommand());
+    getCommand("setlevel").setExecutor(new SetLevelCommand(this));
+    getCommand("getlevel").setExecutor(new GetLevelCommand(this));
+    getCommand("levelperks").setExecutor(new LevelPerksCommand());
   }
 
   private void registerEvents() {
     LevelPermissions.setupLevels();
     AutoRestart.setup();
     PlotActionBar.setup2();
-    getServer().getPluginManager().registerEvents(new ReviewListGUI(this), this);
-    getServer().getPluginManager().registerEvents(new ChatFormat(this), this);
-    getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+    PluginManager pm = getServer().getPluginManager();
+
+    pm.registerEvents(new ReviewListGUI(this), this);
+    pm.registerEvents(new ChatFormat(this), this);
+    pm.registerEvents(new PlayerJoinListener(this), this);
+    pm.registerEvents(new PortalListener(this), this);
+    pm.registerEvents(new PlayerLeaveListener(), this);
 
     new BukkitRunnable() {
 

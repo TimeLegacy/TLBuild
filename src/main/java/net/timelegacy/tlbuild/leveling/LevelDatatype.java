@@ -6,12 +6,10 @@ public class LevelDatatype {
 
   private int levelNum;
   private List<String> permissions;
-  private String worldName;
 
-  public LevelDatatype(int levelNum, String worldName, List<String> permissions) {
+  public LevelDatatype(int levelNum, List<String> permissions) {
     this.levelNum = levelNum;
     this.permissions = permissions;
-    this.worldName = worldName;
   }
 
   public List<String> getPermissions() {
@@ -20,14 +18,6 @@ public class LevelDatatype {
 
   public void setPermissions(List<String> permissions) {
     this.permissions = permissions;
-  }
-
-  public String getWorldName() {
-    return worldName;
-  }
-
-  public void setWorldName(String worldName) {
-    this.worldName = worldName;
   }
 
   public int getLevelNum() {

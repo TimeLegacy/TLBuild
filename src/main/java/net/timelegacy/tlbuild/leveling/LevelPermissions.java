@@ -30,7 +30,6 @@ public class LevelPermissions {
     for (int i = 0; i < levelsJson.length(); i++) {
       JSONObject l = levelsJson.getJSONObject(i);
 
-      String worldName = l.getString("worldname");
       int levelNum = l.getInt("levelnumber");
 
       JSONArray permissionsJson = l.getJSONArray("permissions");
@@ -44,7 +43,7 @@ public class LevelPermissions {
         permissions.add(permission);
       }
 
-      levels.add(new LevelDatatype(levelNum, worldName, permissions));
+      levels.add(new LevelDatatype(levelNum, permissions));
     }
   }
 
